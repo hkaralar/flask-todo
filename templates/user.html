@@ -1,0 +1,9 @@
+{% extends "sablon.html" %} {% block icerik %}
+<!-- Sayfa içeriği -->
+<div class="container" style="margin-top: 50px;">
+  <h1>Merhaba {{ isim }}</h1>
+  {% for i in range(10) %}
+  <p>{{ i }}</p>
+  {% endfor %}
+</div>
+{% endblock %}
