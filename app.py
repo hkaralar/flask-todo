@@ -27,14 +27,11 @@ def index():
 @app.route('/guncelle/<id>')
 def guncelle(id):
     # Gelen id değeri ile kaydı bulalım
-    yap = db.find({'_id':ObjectId(id)})
+    yap = db.find_one({'_id':ObjectId(id)})
     # Durum değeri True ise False, False ise True yapalım
     durum = not yap.get('durum')
     # kaydı güncelle
-    db.find_one_and_update(
-        {'_id':ObjectId(id)},
-        {'$set':{'durum':durum}})
-    
+    db.find_one_and_update({'_id':ObjectId(id)},{'$set':{'durum': durum}})
     # ana sayfaya yönlendir
     return redirect('/')
 
